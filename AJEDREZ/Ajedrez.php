@@ -13,80 +13,62 @@
         // col para las celdas 
         $col=1;
         // el tamaño va a ser el doble del que le pidas 
-        $var=15;
+        $var=9;
         // con esta variable se arregla las dobles casillas
-        $tam=$var/2;
+        $tam=$var;
         //tamaño de celda/img 
         $tamc=40;
+        $color=1;
 
         //inicio tabla
         echo "<table border = 1 >";
         // repetir las filas 
-
-
         for($i=1; $i<=$tam; $i++)
         {
             echo "<tr>";
                 // para repetir celdas 
                 for($col=1; $col<=$tam ; $col++)
                 {
-                    echo "<td>";
-                    echo '<img src="./blanco.jpg" width="'.$tamc.'" height="'.$tamc.'" alt="Mi blanco">';
-                    echo "</td>";
-                    echo "<td>";
-                    echo '<img src="./negro.jpg" width="'.$tamc.'" height="'.$tamc.'" alt="Mi blanco">';                    echo "</td>";
-                }
-                // si no es multiplo de 2 agrega una celda (horizontal)
-                if($tam%2 !=0)
-                {
-                    echo "<td>";
-                    echo '<img src="./blanco.jpg" width="'.$tamc.'" height="'.$tamc.'" alt="Mi blanco">';
-                    echo "</td>";
-                }
-           
-            echo "</tr>";
-            echo "<tr>";
-                    for($col=1; $col<=$tam ; $col++)
+                    echo $col;
+                    if($color=1)
                     {
-                        echo "<td>";
-                        echo '<img src="./negro.jpg" width="'.$tamc.'" height="'.$tamc.'" alt="Mi blanco">';                    echo "</td>";
-                        echo "</td>";
                         echo "<td>";
                         echo '<img src="./blanco.jpg" width="'.$tamc.'" height="'.$tamc.'" alt="Mi blanco">';
+                        $color++;
+                        echo $color;
                         echo "</td>";
                     }
-                    // si no es multiplo de 2 agrega una celda (horizontal)
-                    if($tam%2 !=0)
+
+                    if($color=2)
                     {
                         echo "<td>";
-                        echo '<img src="./negro.jpg" width="'.$tamc.'" height="'.$tamc.'" alt="Mi blanco">';                    echo "</td>";
-                        echo "</td>";
+                        echo '<img src="./negro.jpg" width="'.$tamc.'" height="'.$tamc.'" alt="Mi blanco">';  
+                        $color--; 
+                        echo $color;   
+                        echo "</td>";              
                     }
-            echo "</tr>";
-       }
-       // si no es multiplo de dos agrega una fila
-       if($tam%2 != 0)
-       {
-           echo "<tr>";
-           for($col=1; $col<=$tam ; $col++)
-           {
-               echo "<td>";
-               echo '<img src="./blanco.jpg" width="'.$tamc.'" height="'.$tamc.'" alt="Mi blanco">';
-               echo "</td>";
-               echo "<td>";
-               echo '<img src="./negro.jpg" width="'.$tamc.'" height="'.$tamc.'" alt="Mi blanco">';                    echo "</td>";
-           }
-             // si no es multiplo de 2 agrega una celda (horizontal)
-            if($tam%2 != 0)
-           {
-               echo "<td>";
-               echo '<img src="./blanco.jpg" width="'.$tamc.'" height="'.$tamc.'" alt="Mi blanco">';
-               echo "</td>";
-           }
+                }
            echo "</tr>";
+           if($col=$var)
+           {
+               echo $col;
+               echo "<br>";
+               if($color=2)
+               {
+                    $color--;
+                    echo $color;
+                }            
+               if($color=1)
+               {
+                   $color++;
+                   echo $color;
+               }
+               echo "<br>";
+           }
+
        }
 
         echo "</table>";
     ?>
 </body>
-</html>
+</html> 

@@ -29,7 +29,6 @@
                 // para repetir celdas 
                 for($col=1; $col<=$tam ; $col++)
                 {
-                    echo $col;
                     if($color=1)
                     {
                         echo "<td>";
@@ -37,6 +36,10 @@
                         $color++;
                         echo $color;
                         echo "</td>";
+                        if($col!=$tam)
+                        {
+                            $color--;
+                        }
                     }
 
                     if($color=2)
@@ -45,28 +48,15 @@
                         echo '<img src="./negro.jpg" width="'.$tamc.'" height="'.$tamc.'" alt="Mi blanco">';  
                         $color--; 
                         echo $color;   
-                        echo "</td>";              
+                        echo "</td>";      
+                        if($col!=$tam)
+                        {
+                            $color--;
+                        }        
                     }
                 }
            echo "</tr>";
-           if($col=$var)
-           {
-               echo $col;
-               echo "<br>";
-               if($color=2)
-               {
-                    $color--;
-                    echo $color;
-                }            
-               if($color=1)
-               {
-                   $color++;
-                   echo $color;
-               }
-               echo "<br>";
-           }
-
-       }
+        }
 
         echo "</table>";
     ?>
